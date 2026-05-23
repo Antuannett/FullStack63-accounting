@@ -6,13 +6,13 @@ import {Navigate, Route, Routes} from "react-router";
 function App() {
     //TODO: Implement token retrieval from global state logic
     const token = 'vnsdvksnvksd';
-  return (
-      <Routes>
-        <Route path="/" element={token ? <Navigate to={"/profile"}/> : <Guest/>}/>
-        <Route path="/profile" element={token ? <Profile/> :  <Navigate to={"/"}/>}/>
-      </Routes>
+    return (
+        <Routes>
+            <Route path="/" element={token ? <Navigate to={"/profile"} replace/> : <Guest/>}/>
+            <Route path="/profile" element={token ? <Profile/> : <Navigate to={"/"} replace/>}/>
+        </Routes>
 
-  )
+    )
 }
 
 export default App
