@@ -1,4 +1,6 @@
 import {useState} from "react";
+import {updateUser} from "../../features/api/accountApi.ts";
+import {useAppDispatch} from "../../app/hooks.ts";
 
 interface Props {
     close: () => void;
@@ -7,10 +9,10 @@ interface Props {
 const EditProfile = ({close}: Props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
+    const dispatch = useAppDispatch();
 
     const handleClickSave = () => {
-        //TODO: Implement edit profile save and close functionality
-        alert('Profile updated successfully!');
+        dispatch(updateUser({firstName, lastName}));
         close();
     }
 
